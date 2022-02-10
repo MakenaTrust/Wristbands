@@ -1,6 +1,6 @@
 # Wristbands
 
 in order to run
-    cd wrsitbands
+    cd wristbands
     cd platform_design
     flutter run
