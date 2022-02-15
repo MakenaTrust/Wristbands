@@ -11,9 +11,9 @@ import 'utils.dart';
 import 'widgets.dart';
 
 class SongsTab extends StatefulWidget {
-  static const title = 'Songs';
-  static const androidIcon = Icon(Icons.music_note);
-  static const iosIcon = Icon(CupertinoIcons.music_note);
+  static const title = 'Wallet';
+  static const androidIcon = Icon(Icons.confirmation_num);
+  static const iosIcon = Icon(CupertinoIcons.tickets);
 
   const SongsTab({Key? key, this.androidDrawer}) : super(key: key);
 
