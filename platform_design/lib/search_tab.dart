@@ -10,18 +10,18 @@ import 'package:flutter_lorem/flutter_lorem.dart';
 import 'utils.dart';
 import 'widgets.dart';
 
-class NewsTab extends StatefulWidget {
-  static const title = 'Send / Recieve';
-  static const androidIcon = Icon(Icons.sync_alt);
-  static const iosIcon = Icon(CupertinoIcons.arrow_right_arrow_left);
+class SearchTab extends StatefulWidget {
+  static const title = 'Search';
+  static const androidIcon = Icon(Icons.search);
+  static const iosIcon = Icon(CupertinoIcons.search);
 
-  const NewsTab({Key? key}) : super(key: key);
+  const SearchTab({Key? key}) : super(key: key);
 
   @override
-  _NewsTabState createState() => _NewsTabState();
+  _SearchTabState createState() => _SearchTabState();
 }
 
-class _NewsTabState extends State<NewsTab> {
+class _SearchTabState extends State<SearchTab> {
   static const _itemsLength = 20;
 
   late final List<Color> colors;
@@ -97,7 +97,7 @@ class _NewsTabState extends State<NewsTab> {
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(NewsTab.title),
+        title: const Text(SearchTab.title),
       ),
       body: ListView.builder(
         itemCount: _itemsLength,

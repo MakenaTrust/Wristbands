@@ -5,10 +5,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'news_tab.dart';
+import 'send_recieve_tab.dart';
 import 'profile_tab.dart';
 import 'settings_tab.dart';
-import 'songs_tab.dart';
+import 'wallet_tab.dart';
+import 'search_tab.dart';
 import 'widgets.dart';
 
 void main() => runApp(const MyAdaptingApp());
@@ -69,7 +70,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
   // all 4 possible tabs. This drawer is injected into the songs tab which is
   // actually building the scaffold around the drawer.
   Widget _buildAndroidHomePage(BuildContext context) {
-    return SongsTab(
+    return WalletTab(
       key: songsTabKey,
       androidDrawer: _AndroidDrawer(),
     );
@@ -88,12 +89,16 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
       tabBar: CupertinoTabBar(
         items: const [
           BottomNavigationBarItem(
-            label: SongsTab.title,
-            icon: SongsTab.iosIcon,
+            label: WalletTab.title,
+            icon: WalletTab.iosIcon,
           ),
           BottomNavigationBarItem(
-            label: NewsTab.title,
-            icon: NewsTab.iosIcon,
+            label: SearchTab.title,
+            icon: SearchTab.iosIcon,
+          ),
+          BottomNavigationBarItem(
+            label: SendReceiveTab.title,
+            icon: SendReceiveTab.iosIcon,
           ),
           BottomNavigationBarItem(
             label: ProfileTab.title,
@@ -105,15 +110,20 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
         switch (index) {
           case 0:
             return CupertinoTabView(
-              defaultTitle: SongsTab.title,
-              builder: (context) => SongsTab(key: songsTabKey),
+              defaultTitle: WalletTab.title,
+              builder: (context) => WalletTab(key: songsTabKey),
             );
           case 1:
             return CupertinoTabView(
-              defaultTitle: NewsTab.title,
-              builder: (context) => const NewsTab(),
+              defaultTitle: SearchTab.title,
+              builder: (context) => const SearchTab(),
             );
           case 2:
+            return CupertinoTabView(
+              defaultTitle: SendReceiveTab.title,
+              builder: (context) => const SendReceiveTab(),
+            );
+          case 3:
             return CupertinoTabView(
               defaultTitle: ProfileTab.title,
               builder: (context) => const ProfileTab(),
@@ -154,19 +164,30 @@ class _AndroidDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: SongsTab.androidIcon,
-            title: const Text(SongsTab.title),
+            leading: WalletTab.androidIcon,
+            title: const Text(WalletTab.title),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            leading: NewsTab.androidIcon,
-            title: const Text(NewsTab.title),
+            leading: SearchTab.androidIcon,
+            title: const Text(SearchTab.title),
             onTap: () {
               Navigator.pop(context);
               Navigator.push<void>(context,
-                  MaterialPageRoute(builder: (context) => const NewsTab()));
+                  MaterialPageRoute(builder: (context) => const SearchTab()));
+            },
+          ),
+          ListTile(
+            leading: SendReceiveTab.androidIcon,
+            title: const Text(SendReceiveTab.title),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push<void>(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SendReceiveTab()));
             },
           ),
           ListTile(

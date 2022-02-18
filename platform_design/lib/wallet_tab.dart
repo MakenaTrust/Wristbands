@@ -10,20 +10,20 @@ import 'song_detail_tab.dart';
 import 'utils.dart';
 import 'widgets.dart';
 
-class SongsTab extends StatefulWidget {
+class WalletTab extends StatefulWidget {
   static const title = 'Wallet';
   static const androidIcon = Icon(Icons.confirmation_num);
   static const iosIcon = Icon(CupertinoIcons.tickets);
 
-  const SongsTab({Key? key, this.androidDrawer}) : super(key: key);
+  const WalletTab({Key? key, this.androidDrawer}) : super(key: key);
 
   final Widget? androidDrawer;
 
   @override
-  _SongsTabState createState() => _SongsTabState();
+  _WalletTabState createState() => _WalletTabState();
 }
 
-class _SongsTabState extends State<SongsTab> {
+class _WalletTabState extends State<WalletTab> {
   static const _itemsLength = 50;
 
   final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
@@ -70,7 +70,7 @@ class _SongsTabState extends State<SongsTab> {
           heroAnimation: const AlwaysStoppedAnimation(0),
           onPressed: () => Navigator.of(context).push<void>(
             MaterialPageRoute(
-              builder: (context) => SongDetailTab(
+              builder: (context) => WalletDetailTab(
                 id: index,
                 song: songNames[index],
                 color: color,
@@ -113,7 +113,7 @@ class _SongsTabState extends State<SongsTab> {
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(SongsTab.title),
+        title: const Text(WalletTab.title),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
