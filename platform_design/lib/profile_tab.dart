@@ -25,17 +25,16 @@ class ProfileTab extends StatelessWidget {
               padding: EdgeInsets.all(8),
               child: Center(
                 child: Text(
-                  '😼',
+                  'ARE YOU A USER GOER\nOR A EVENT HOLDER?',
                   style: TextStyle(
-                    fontSize: 80,
+                    fontSize: 25,
                     decoration: TextDecoration.none,
                   ),
                 ),
               ),
             ),
             const PreferenceCard(
-              header: 'MY INTENSITY PREFERENCE',
-              content: '🔥',
+              content: 'EVENT GOER',
               preferenceChoices: [
                 'Super heavy',
                 'Dial it to 11',
@@ -45,8 +44,7 @@ class ProfileTab extends StatelessWidget {
               ],
             ),
             const PreferenceCard(
-              header: 'CURRENT MOOD',
-              content: '🤘🏾🚀',
+              content: 'EVENT HOLDER',
               preferenceChoices: [
                 'Over the moon',
                 'Basking in sunlight',
@@ -112,20 +110,18 @@ class ProfileTab extends StatelessWidget {
 
 class PreferenceCard extends StatelessWidget {
   const PreferenceCard({
-    required this.header,
     required this.content,
     required this.preferenceChoices,
     Key? key,
   }) : super(key: key);
 
-  final String header;
   final String content;
   final List<String> preferenceChoices;
 
   @override
   Widget build(context) {
     return PressableCard(
-      color: Colors.green,
+      color: Colors.blue,
       flattenAnimation: const AlwaysStoppedAnimation(0),
       child: Stack(
         children: [
@@ -133,30 +129,11 @@ class PreferenceCard extends StatelessWidget {
             height: 120,
             width: 250,
             child: Padding(
-              padding: const EdgeInsets.only(top: 40),
+              padding: const EdgeInsets.only(top: 10),
               child: Center(
                 child: Text(
                   content,
-                  style: const TextStyle(fontSize: 48),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              color: Colors.black12,
-              height: 40,
-              padding: const EdgeInsets.only(left: 12),
-              alignment: Alignment.centerLeft,
-              child: Text(
-                header,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
+                  style: const TextStyle(fontSize: 16),
                 ),
               ),
             ),
