@@ -24,9 +24,8 @@ class MyAdaptingApp extends StatelessWidget {
     return MaterialApp(
       title: 'Adaptive Music App',
       theme: ThemeData(
-        // Use the green theme for Material widgets.
-        primarySwatch: Colors.green,
-      ),
+          // Use the green theme for Material widgets.
+          primarySwatch: Colors.green),
       darkTheme: ThemeData.dark(),
       builder: (context, child) {
         return CupertinoTheme(

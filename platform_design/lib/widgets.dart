@@ -5,6 +5,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 /// A simple widget that builds different things on different platforms.
 class PlatformWidget extends StatelessWidget {
@@ -195,16 +196,20 @@ class HeroAnimatingSongCard extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 45) *
                       (1 - heroAnimation.value),
                   child: Container(
-                    height: playButtonSize,
-                    width: playButtonSize,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.black12,
-                    ),
-                    alignment: Alignment.center,
-                    child: Icon(Icons.play_arrow,
-                        size: playButtonSize, color: Colors.black38),
-                  ),
+                      height: playButtonSize,
+                      width: playButtonSize,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.black12,
+                      ),
+                      alignment: Alignment.center,
+                      child: QrImage(
+                        data: song,
+                        version: QrVersions.auto,
+                        size: playButtonSize,
+                      ) //Icon(Icons.play_arrow,
+                      //size: playButtonSize, color: Colors.black38),
+                      ),
                 ),
               ],
             ),
