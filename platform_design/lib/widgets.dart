@@ -150,7 +150,7 @@ class HeroAnimatingSongCard extends StatelessWidget {
   final Animation<double> heroAnimation;
   final VoidCallback? onPressed;
 
-  double get playButtonSize => 50 + 50 * heroAnimation.value;
+  double get playButtonSize => 170 + 50 * heroAnimation.value;
 
   @override
   Widget build(context) {
@@ -170,7 +170,7 @@ class HeroAnimatingSongCard extends StatelessWidget {
           child: SizedBox(
             height: 250,
             child: Stack(
-              alignment: Alignment.center,
+              alignment: Alignment.topRight,
               children: [
                 // The song title banner slides off in the hero animation.
                 Positioned(
@@ -199,7 +199,7 @@ class HeroAnimatingSongCard extends StatelessWidget {
                       height: playButtonSize,
                       width: playButtonSize,
                       decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
+                        shape: BoxShape.rectangle, //circle,
                         color: Colors.black12,
                       ),
                       alignment: Alignment.center,
